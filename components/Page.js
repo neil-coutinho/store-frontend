@@ -1,7 +1,9 @@
+import Header from './Header';
+
 export default function Page(props) {
   return (
     <div>
-      Page Wrapper Component
+      <Header />
       {props.children}
     </div>
   );
