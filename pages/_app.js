@@ -1,5 +1,6 @@
 import Page from '../components/Page';
-import 'nprogress/nprogress.css';
+// import 'nprogress/nprogress.css';
+import '../components/styles/nprogress.css';
 import NProgress from 'nprogress';
 import Router from 'next/router';
 
