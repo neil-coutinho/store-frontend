@@ -1,9 +1,3 @@
-// import Page from '../components/Page';
+import PageProducts from './products';
 
-export default function HomePage() {
-  return (
-    // <Page> //No need to wrap if using _app.js wrapping page
-    <div> Home Page</div>
-    // </Page>
-  );
-}
+export default PageProducts;
