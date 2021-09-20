@@ -1,3 +1,4 @@
+import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 
 const ALL_PRODUCTS_QUERY = gql`
@@ -19,5 +20,7 @@ const ALL_PRODUCTS_QUERY = gql`
 `;
 
 export default function Products() {
+  const { data, errors, loading } = useQuery(ALL_PRODUCTS_QUERY);
+  console.log(data, errors, loading);
   return <div>Products Component</div>;
 }
