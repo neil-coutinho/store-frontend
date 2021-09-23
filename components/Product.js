@@ -1,5 +1,8 @@
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 import ItemStyles from './styles/ItemStyles';
+import TitleStyles from './styles/Title';
+import PriceTagStyles from './styles/PriceTag';
 
 export default function Product({ product }) {
   return (
@@ -8,7 +11,10 @@ export default function Product({ product }) {
         src={product?.photo?.image?.publicUrlTransformed}
         alt={product.name}
       />
-      <p>{product.name}</p>
+      <TitleStyles>
+        <Link href={`product/${product.id}`}>{product.name}</Link>
+      </TitleStyles>
+      <PriceTagStyles>{product.price}</PriceTagStyles>
     </ItemStyles>
   );
 }
