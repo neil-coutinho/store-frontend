@@ -3,6 +3,7 @@ import Link from 'next/link';
 import ItemStyles from './styles/ItemStyles';
 import TitleStyles from './styles/Title';
 import PriceTagStyles from './styles/PriceTag';
+import formatPrice from '../lib/priceFormatter';
 
 export default function Product({ product }) {
   return (
@@ -14,7 +15,7 @@ export default function Product({ product }) {
       <TitleStyles>
         <Link href={`product/${product.id}`}>{product.name}</Link>
       </TitleStyles>
-      <PriceTagStyles>{product.price}</PriceTagStyles>
+      <PriceTagStyles>{formatPrice(product.price)}</PriceTagStyles>
     </ItemStyles>
   );
 }
