@@ -4,7 +4,7 @@ import useForm from '../lib/useForm';
 export default function CreateProduct() {
   // const [name, setName] = useState('Neil');
 
-  const [inputs, handleChange] = useForm({
+  const [inputs, handleChange, resetForm] = useForm({
     name: 'Neil Coutinho',
   });
 
