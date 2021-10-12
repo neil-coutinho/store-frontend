@@ -6,6 +6,7 @@ export default function CreateProduct() {
 
   const [inputs, handleChange, resetForm, clearForm] = useForm({
     name: 'Neil Coutinho',
+    price: 10,
   });
 
   return (
@@ -19,6 +20,21 @@ export default function CreateProduct() {
           value={inputs.name}
           onChange={handleChange}
         />
+        <label htmlFor="price">Price</label>
+        <input
+          id="price"
+          name="price"
+          type="number"
+          placeholder="Product Price"
+          value={inputs.price}
+          onChange={handleChange}
+        />
+        <button type="button" onClick={clearForm}>
+          Clear
+        </button>
+        <button type="button" onClick={resetForm}>
+          Reset Form
+        </button>
       </form>
     </div>
   );
