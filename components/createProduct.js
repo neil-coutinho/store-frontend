@@ -1,5 +1,6 @@
 // import { useState } from 'react';
 import useForm from '../lib/useForm';
+import FormStyles from './styles/Form';
 
 export default function CreateProduct() {
   // const [name, setName] = useState('Neil');
@@ -11,7 +12,7 @@ export default function CreateProduct() {
 
   return (
     <div>
-      <form>
+      <FormStyles>
         <label htmlFor="name">Name</label>
         <input
           id="name"
@@ -35,7 +36,7 @@ export default function CreateProduct() {
         <button type="button" onClick={resetForm}>
           Reset Form
         </button>
-      </form>
+      </FormStyles>
     </div>
   );
 }
