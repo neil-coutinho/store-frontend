@@ -13,29 +13,34 @@ export default function CreateProduct() {
   return (
     <div>
       <FormStyles>
-        <label htmlFor="name">Name</label>
-        <input
-          id="name"
-          name="name"
-          placeholder="Product Name"
-          value={inputs.name}
-          onChange={handleChange}
-        />
-        <label htmlFor="price">Price</label>
-        <input
-          id="price"
-          name="price"
-          type="number"
-          placeholder="Product Price"
-          value={inputs.price}
-          onChange={handleChange}
-        />
-        <button type="button" onClick={clearForm}>
+        <fieldset aria-busy="true">
+          <label htmlFor="name">Name</label>
+          <input
+            id="name"
+            name="name"
+            placeholder="Product Name"
+            value={inputs.name}
+            onChange={handleChange}
+          />
+          <label htmlFor="price">Price</label>
+          <input
+            id="price"
+            name="price"
+            type="number"
+            placeholder="Product Price"
+            value={inputs.price}
+            onChange={handleChange}
+          />
+        </fieldset>
+
+        <button type="submit">Add Product</button>
+
+        {/* <button type="button" onClick={clearForm}>
           Clear
         </button>
         <button type="button" onClick={resetForm}>
           Reset Form
-        </button>
+        </button> */}
       </FormStyles>
     </div>
   );
