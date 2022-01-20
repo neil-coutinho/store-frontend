@@ -1,6 +1,7 @@
-import PageProducts from './products';
+import ProductsPage from './products';
 
-export default PageProducts;
+// index route similar to another route (products)
+export default ProductsPage;
 
 // export default function () {
 //   return <Page>Hello World</Page>;

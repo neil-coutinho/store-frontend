@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const NavStyles = styled.ul`
   margin: 0;
-  padding: 0;
+  padding: 0 2rem;
   display: flex;
   justify-self: end;
   font-size: 2rem;
@@ -48,7 +48,7 @@ const NavStyles = styled.ul`
     &:hover,
     &:focus {
       outline: none;
-      text-decoration:none;
+      text-decoration: none;
       &:after {
         width: calc(100% - 60px);
       }

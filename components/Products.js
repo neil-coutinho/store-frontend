@@ -41,10 +41,10 @@ export default function Products() {
 
   return (
     <ProductStyles>
-      {/* {data.allProducts.map((product) => (
+      {data.allProducts.map((product) => (
         // console.log({ product });
         <Product key={product.id} product={product} />
-      ))} */}
+      ))}
     </ProductStyles>
   );
 }
