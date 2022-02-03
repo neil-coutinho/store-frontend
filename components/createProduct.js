@@ -1,7 +1,11 @@
-import { useState } from 'react';
+import useForm from '../lib/useForm';
 
 export default function CreateProduct() {
-  const [name, setName] = useState('Neil');
+  // const [name, setName] = useState('Neil');
+
+  const [formGroup, handleChange] = useForm({
+    name: '',
+  }); // custom hook in place of useState
 
   return (
     <div>
@@ -12,11 +16,8 @@ export default function CreateProduct() {
             type="text"
             name="name"
             id="name"
-            value={name}
-            onChange={(e) => {
-              const { value } = e.target;
-              setName(value);
-            }}
+            value={formGroup.name}
+            onChange={handleChange}
           />
         </label>
       </form>
