@@ -1,3 +1,4 @@
+import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import useForm from '../lib/useForm';
 import Form from './styles/Form';
@@ -39,9 +40,16 @@ export default function CreateProduct() {
     image: '',
   }); // custom hook in place of useState
 
-  const onSubmit = (e) => {
+  const [createProduct, { loading, error, data }] = useMutation(
+    CREATE_PRODUCT_MUTATION,
+    formGroup
+  );
+
+  const onSubmit = async (e) => {
     e.preventDefault();
     console.log(e, formGroup);
+    const result = await createProduct();
+    console.log(result);
   };
   return (
     <div>
