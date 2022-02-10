@@ -1,5 +1,32 @@
+import gql from 'graphql-tag';
 import useForm from '../lib/useForm';
 import Form from './styles/Form';
+
+const CREATE_PRODUCT_MUTATION = gql`
+  mutation CREATE_PRODUCT_MUTATION(
+    $name: String!
+    $description: String
+    $status: String
+    $price: Int!
+    $image: Upload
+  ) {
+    createProduct(
+      data: {
+        name: $name
+        status: "DRAFT"
+        description: $description
+        price: $price
+      }
+    ) {
+      id
+      name
+      status
+      description
+      price
+      photo
+    }
+  }
+`;
 
 export default function CreateProduct() {
   // const [name, setName] = useState('Neil');
