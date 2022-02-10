@@ -54,7 +54,7 @@ export default function CreateProduct() {
   return (
     <div>
       <Form onSubmit={onSubmit}>
-        <fieldset>
+        <fieldset aria-busy={loading} disabled={loading}>
           <label htmlFor="name">
             Name
             <input
