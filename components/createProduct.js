@@ -16,6 +16,7 @@ const CREATE_PRODUCT_MUTATION = gql`
         status: "DRAFT"
         description: $description
         price: $price
+        photo: { create: { altText: $name, image: $image } }
       }
     ) {
       id
