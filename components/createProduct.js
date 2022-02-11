@@ -1,15 +1,14 @@
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import useForm from '../lib/useForm';
+import DisplayError from './ErrorMessage';
 import Form from './styles/Form';
 
 const CREATE_PRODUCT_MUTATION = gql`
   mutation CREATE_PRODUCT_MUTATION(
     $name: String!
     $description: String
-    $status: String
     $price: Int!
-    $image: Upload
   ) {
     createProduct(
       data: {
@@ -17,7 +16,6 @@ const CREATE_PRODUCT_MUTATION = gql`
         status: "DRAFT"
         description: $description
         price: $price
-        photo: { create: { altText: $name, image: $image } }
       }
     ) {
       id
@@ -25,7 +23,6 @@ const CREATE_PRODUCT_MUTATION = gql`
       status
       description
       price
-      photo
     }
   }
 `;
@@ -42,17 +39,21 @@ export default function CreateProduct() {
 
   const [createProduct, { loading, error, data }] = useMutation(
     CREATE_PRODUCT_MUTATION,
-    formGroup
+    {
+      variables: formGroup,
+    }
   );
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(e, formGroup);
+
+    console.log(formGroup);
     const result = await createProduct();
-    console.log(result);
   };
   return (
     <div>
+      <DisplayError error={error} />
+
       <Form onSubmit={onSubmit}>
         <fieldset aria-busy={loading} disabled={loading}>
           <label htmlFor="name">
