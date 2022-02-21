@@ -67,7 +67,7 @@ export default function CreateProduct() {
         } = response;
 
         if (id) {
-          router.push(`products/${id}`);
+          router.push(`product/${id}`);
         }
       }}
     >
