@@ -1,10 +1,10 @@
 import SingleProduct from '../../components/SingleProduct';
 
 export default function SingleProductPage({ query }) {
-  const { id: productId } = query;
+  const { id } = query;
   return (
     <>
-      <SingleProduct id={productId} />
+      <SingleProduct id={id} />
     </>
   );
 }
