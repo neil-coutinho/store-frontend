@@ -2,6 +2,7 @@ import { useQuery } from '@apollo/client';
 import PropTypes from 'prop-types';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
+import Head from 'next/head';
 import DisplayError from './ErrorMessage';
 
 const SINGLE_PRODUCT_QUERY = gql`
@@ -48,18 +49,24 @@ export default function SingleProduct({ id }) {
   const { Product } = data;
   const { photo } = Product;
   return (
-    <ProductStyles>
-      <img
-        loading="lazy"
-        src={photo.image.publicUrlTransformed}
-        alt={photo.altText}
-      />
+    <>
+      <Head>
+        <title>{Product.name}</title>
+      </Head>
 
-      <div className="details">
-        <h2>{Product.name}</h2>
-        <p className="description">{Product.description}</p>
-      </div>
-    </ProductStyles>
+      <ProductStyles>
+        <img
+          loading="lazy"
+          src={photo.image.publicUrlTransformed}
+          alt={photo.altText}
+        />
+
+        <div className="details">
+          <h2>{Product.name}</h2>
+          <p className="description">{Product.description}</p>
+        </div>
+      </ProductStyles>
+    </>
   );
 }
 
