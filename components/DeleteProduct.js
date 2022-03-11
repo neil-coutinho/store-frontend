@@ -13,7 +13,7 @@ export default function DeleteProduct({ id, children }) {
     }
   `;
   const update = (cache, payload) => {
-    cache.evict(cache.identify(payload.data.deleteProduct));
+    cache.evict(cache.identify(payload.data.deleteProduct)); // Apollo cache eviction
   };
   const [deleteProduct, { error, loading, data }] = useMutation(
     DELETE_PRODUCT_MUTATION,
@@ -29,6 +29,8 @@ export default function DeleteProduct({ id, children }) {
     <>
       <button
         type="button"
+        disabled={loading}
+        aria-busy={loading}
         onClick={async () => {
           try {
             if (
