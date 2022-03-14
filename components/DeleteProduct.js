@@ -1,7 +1,6 @@
 import gql from 'graphql-tag';
 
 import { useMutation } from '@apollo/client';
-import { ALL_PRODUCTS_QUERY } from './Products';
 
 export default function DeleteProduct({ id, children }) {
   const DELETE_PRODUCT_MUTATION = gql`
