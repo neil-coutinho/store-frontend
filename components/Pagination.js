@@ -31,7 +31,7 @@ export default function Pagination({ page }) {
         </title>
       </Head>
 
-      <Link href={`products/${page - 1}`}>
+      <Link href={`${page - 1}`}>
         <a aria-disabled={page <= 1}>Prev Page</a>
       </Link>
       <Link href="/">
@@ -42,7 +42,7 @@ export default function Pagination({ page }) {
       <Link href="/">
         <a>Total items: {count}</a>
       </Link>
-      <Link href={`products/${page + 1}`}>
+      <Link href={`${page + 1}`}>
         <a aria-disabled={page >= pageCount}>Next Page</a>
       </Link>
     </PaginationStyles>
