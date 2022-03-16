@@ -1,11 +1,15 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
 import Product from './Product';
+import { perPage } from '../config';
+
+// $skip: offset, $first: limit
 
 export const ALL_PRODUCTS_QUERY = gql`
-  query ALL_PRODUCTS_QUERY {
-    allProducts {
+  query ALL_PRODUCTS_QUERY($skip: Int = 0, $first: Int) {
+    allProducts(first: $first, skip: $skip) {
       id
       name
       description
@@ -28,7 +32,14 @@ const ProductStyles = styled.div`
 `;
 
 export default function Products() {
-  const { data, errors, loading } = useQuery(ALL_PRODUCTS_QUERY);
+  const router = useRouter();
+  const { page = 1 } = router?.query;
+  const { data, errors, loading } = useQuery(ALL_PRODUCTS_QUERY, {
+    variables: {
+      first: perPage,
+      skip: page * perPage - perPage,
+    },
+  });
 
   if (loading) {
     return <p>Loading ...</p>;
