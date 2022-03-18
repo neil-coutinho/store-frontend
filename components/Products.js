@@ -2,6 +2,7 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import { id } from 'date-fns/locale';
 import Product from './Product';
 import { perPage } from '../config';
 
