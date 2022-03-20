@@ -37,8 +37,8 @@ export default function Products() {
   const { page = 1 } = router?.query;
   const { data, errors, loading } = useQuery(ALL_PRODUCTS_QUERY, {
     variables: {
-      first: perPage,
-      skip: page * perPage - perPage,
+      first: perPage, // LIMIT
+      skip: page * perPage - perPage, // OFFSET
     },
   });
 
@@ -52,7 +52,7 @@ export default function Products() {
 
   return (
     <ProductStyles>
-      {data.allProducts.map((product) => (
+      {data?.allProducts.map((product) => (
         // console.log({ product });
         <Product key={product.id} product={product} />
       ))}
