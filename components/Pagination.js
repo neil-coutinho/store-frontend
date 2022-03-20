@@ -6,7 +6,7 @@ import Link from 'next/link';
 import PaginationStyles from './styles/PaginationStyles';
 import { perPage } from '../config';
 
-const ALL_PRODUCTS_META = gql`
+export const ALL_PRODUCTS_META = gql`
   {
     _allProductsMeta {
       count
